@@ -29,6 +29,8 @@ class UploadData(Resource):
 			return {"Estatus":y,"Cliente":agem}
 		else:
 			return{"Estatus":"Hubo un error con la carga del documento"},404
+		return y
+
 class registrarDelito(Resource):
 	pass
 

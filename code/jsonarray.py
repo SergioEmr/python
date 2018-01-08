@@ -1,5 +1,8 @@
 import seleccion
-
+import pandas as pd
+data = []
+target = []
+valores = [12,3,4,5]
 Pturno = []
 Psemana = []
 Pproxpol = []
@@ -14,6 +17,13 @@ sexov = []
 lat = []
 lon = []
 unidad = []
+csv = "Dataset1.csv"
+def lecturaCsv(csv):
+	Datos = pd.read_csv(csv)
+	data = Datos[Datos.columns[0:-1]].as_matrix() 
+	target = Datos[Datos.columns[-1]].as_matrix()
+	return target
+
 
 def registroDelitos(entrada):
 	for g in range(len(entrada['features'])):
@@ -33,7 +43,9 @@ def registroDelitos(entrada):
 	delito[4], hreporte[4], mes[4], diasem[4], 
 	dianum[4], factorv[4], lat[4], lon[4], unidad[4], turno[4]]
 	return totales
+	
 def prediccionDia(lista):
 	pass
+print(type(data))
 # Pturno 	= pparametro(turno_totales)
 # Psemana = pparametro(semana_totales)
